@@ -176,11 +176,10 @@ class EpsGreedyQPolicy(PolicyDebug):
 f = open('qvalue-64-4-0110', 'a')
 ENV_NAME = 'ea'
 
-# print("Before env object", suite_options)
 env = de.DEEnv()
 
 nb_actions = env.action_space.n
-#print((1,) + env.observation_space.shape)
+
 # Build a sequential model.
 model = Sequential()
 model.add(Flatten(input_shape=(1,) + env.observation_space.shape))
@@ -191,36 +190,22 @@ model.add(Dense(100, activation = 'relu'))
 model.add(Dense(nb_actions, activation = 'linear'))
 print("Model Summary: ",model.summary())
 
-#print("keras1...", budget)
 memory = SequentialMemory(limit=100000, window_length=1)#100000
 
 # Boltzmann Q Policy
-#print("Boltzmann Q Policy")
 policy = EpsGreedyQPolicy() #BoltzmannQPolicy()
 
 # DQN Agent: Finally, we configure and compile our agent. You can use every built-in Keras optimizer and even the metrics!
-#print("DQN Agent")
 dqn = DQNAgent(model=model, nb_actions=nb_actions, memory=memory, nb_steps_warmup=1e4, target_model_update=1e3, policy=policy, enable_double_dqn = True, batch_size = 64) # nb_steps_warmup >= nb_steps 2000
 # DQN stores the experience i the memory buffer for the first nb_steps_warmup. This is done to get the required size of batch during experience replay.
 # When number of steps exceeds nb_steps_warmup then the neural network would learn and update the weight.
 
 # Neural Compilation
-#print("Neural Compilation")
 dqn.compile(Adam(lr=1e-4), metrics=['mae'])
 
-#log_filename = 'dqn_{}_log.json'.format(ENV_NAME)
-#callbacks = [FileLogger(log_filename, interval=10)]
 callbacks = [ModelCheckpoint('dqn_ea_weights.h5f', 32)]
 
 # Fit the model: training for nb_steps = number of generations
-#print("Fit the model ")
 dqn.fit(env, callbacks = callbacks, nb_steps=115e8, visualize=False, verbose=0, nb_max_episode_steps = None) #int(budget)
 
-# After training is done, we save the final weights.
-#print("Save the weights ",self.budget)
-#dqn.save_weights('dqn_{}_weights.h5f'.format(ENV_NAME), overwrite=True)
-
 f.close()
-# Test
-#print("Test")
-#dqn.test(env, nb_episodes=1, visualize=False)
