@@ -1,0 +1,17 @@
+AUTHORS
+LICENSE
+MANIFEST.in
+README.txt
+bbob2009_testcases.txt
+coco_test.py
+demo.py
+setup.py
+cocoex.egg-info/PKG-INFO
+cocoex.egg-info/SOURCES.txt
+cocoex.egg-info/dependency_links.txt
+cocoex.egg-info/top_level.txt
+cython/coco.c
+cython/interface.c
+python/__init__.py
+python/exceptions.py
+python/utilities.py

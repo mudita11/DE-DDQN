@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: cocoex
+Version: 0.0.0
+Summary: Benchmarking framework for all types of black-box optimization algorithms.
+Home-page: https://github.com/numbbo/coco/
+Author: Olaf Mersmann
+Author-email: olafm@p-value.net
+License: BSD
+Description: ...
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: ??
+Classifier: Intended Audience :: ??
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: ??
