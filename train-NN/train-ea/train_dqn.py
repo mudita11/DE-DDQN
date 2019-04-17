@@ -8,7 +8,7 @@ import math
 import csv
 from numpy.linalg import inv
 
-from gym.envs.ea import de-R1, de-R2, de-R3
+from gym.envs.ea import de_R1, de_R2, de_R3
 
 import gym
 from gym import spaces
@@ -171,7 +171,7 @@ class EpsGreedyQPolicy(PolicyDebug):
 
 ENV_NAME = 'ea'
 
-env = de-R2.DEEnv() # Can be changed to create an object of de-R1 or de-R3 for reward defintions R1 and R2 resp.
+env = de_R2.DEEnv() # Can be changed to create an object of de-R1 or de-R3 for reward defintions R1 and R3 resp.
 
 nb_actions = env.action_space.n
 
