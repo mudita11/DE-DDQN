@@ -8,7 +8,7 @@ import math
 import csv
 from numpy.linalg import inv
 
-from gym.envs.ea import de
+from envs.ea import de
 
 import gym
 from gym import spaces
